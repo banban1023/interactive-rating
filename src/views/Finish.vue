@@ -1,6 +1,8 @@
 <template>
   <div class="finish">
-    <img src="@/assets/illustration-thank-you.svg" alt="Thank you illustration" role="presentation">
+    <header>
+      <img src="@/assets/illustration-thank-you.svg" alt="Thank you illustration" role="presentation">
+    </header>
     <!-- Thank you state start -->
     <p><mark>You selected {{score}} out of 5</mark></p>
     <section aria-labelledby="thank-title thankyou-desc">
