@@ -14,9 +14,10 @@
       v-for="(item, index) in scoreLit"
       :key="index"
       @click="handleScore(item)"
+      :class="{ active: item === score}"
       ><button aria-label="score">{{item}}</button></li>
     </ul>
-    <button class="submit">SUBMIT</button>
+    <button @click="goThankPage" class="submit">SUBMIT</button>
     <!-- Rating state end -->
   </div>
 </template>
@@ -26,12 +27,25 @@ export default {
   name: 'StartIndex',
   data () {
     return {
-      scoreLit: [1, 2, 3, 4, 5]
+      scoreLit: [1, 2, 3, 4, 5],
+      score: null
     }
   },
   methods: {
     handleScore (id) {
-      console.log(id)
+      this.score = id
+      console.log(this.score)
+    },
+    goThankPage () {
+      if (this.score === null) {
+        return
+      }
+      this.$router.push({
+        path: '/finish',
+        query: {
+          score: this.score
+        }
+      })
     }
   }
 }

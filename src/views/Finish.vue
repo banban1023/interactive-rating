@@ -1,11 +1,11 @@
 <template>
   <div class="finish">
-    <img src="@/assets/illustration-thank-you.svg" alt="" role="presentation">
+    <img src="@/assets/illustration-thank-you.svg" alt="Thank you illustration" role="presentation">
     <!-- Thank you state start -->
-    <p><mark>You selected 4 out of 5</mark></p>
-    <section aria-labelledby="thank-title">
+    <p><mark>You selected {{score}} out of 5</mark></p>
+    <section aria-labelledby="thank-title thankyou-desc">
       <h2 id="thank-title">Thank you!</h2>
-      <p>
+      <p id="thankyou-desc">
         We appreciate you taking the time to give a rating.
         lf you ever need more support, don't hesitate to get in touch!.
       </p>
@@ -16,7 +16,12 @@
 
 <script>
 export default {
-  name: 'FinishIndex'
+  name: 'FinishIndex',
+  computed: {
+    score () {
+      return this.$route.query.score
+    }
+  }
 }
 </script>
 
